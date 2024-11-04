@@ -36,20 +36,80 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>Тіркеу</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 350px; /* Контейнердің ені */
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px; /* Контейнердің ішкі жиегі */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px; /* Контейнердің бұрыштарының радиусы */
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 24px; /* Заголовоктың өлшемі */
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 80%;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 8px; /* Жоғарғы жиегі */
+            display: block;
+            font-size: 16px; /* Мәтіннің өлшемі */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 12px; /* Ішкі жиегі */
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px; /* Шрифт өлшемі */
+        }
+        button {
+            width: 100%;
+            padding: 12px; /* Батырманың ішкі жиегі */
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px; /* Батырма мәтінінің өлшемі */
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-    <h2>Тіркеу формасы</h2>
-    <form action="register1.php" method="post">
-        <label for="username">Пайдаланушы аты:</label>
-        <input type="text" id="username" name="username" required><br><br>
+    <div class="container">
+        <img src="https://avatars.mds.yandex.net/get-ydo/1449941/2a0000016e2dd99c2b32388338cfaf353be1/diploma" alt="Логотип" class="logo"> <!-- Логотип -->
+        <h2>Біздің дүкенге қош келдіңіз!</h2>
+        <h2>Тіркелу</h2>
+        <form action="register1.php" method="post">
+            <label for="username">Пайдаланушы аты:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="email">Электрондық пошта:</label>
-        <input type="email" id="email" name="email" required><br><br>
+            <label for="email">Электрондық пошта:</label>
+            <input type="email" id="email" name="email" required>
 
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" required><br><br>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
 
-        <button type="submit">Тіркелу</button>
-    </form>
+            <button type="submit">Дайын</button>
+        </form>
+    </div>
 </body>
 </html>
