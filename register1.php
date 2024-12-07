@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "register1";
+$dbname = "интернет_магазин";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Электрондық пошта адресінің уникалдығын тексеру
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM registration WHERE email = ?");
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM пользователи WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->bind_result($count);
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Дайындалған мәлімдеме жасау
-    $stmt = $conn->prepare("INSERT INTO registration (username, email, password) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO пользователи (username, email, password) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $username, $email, $password);
 
     // Деректерді дерекқорға енгізу
