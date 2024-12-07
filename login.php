@@ -3,7 +3,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "register1";
+$dbname = "интернет_магазин";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST["password"];
 
         // Пайдаланушыны табу
-        $stmt = $conn->prepare("SELECT * FROM registration WHERE username=?");
+        $stmt = $conn->prepare("SELECT * FROM пользователи WHERE username=?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -52,20 +52,21 @@ $conn->close();
     <meta charset="UTF-8">
     <title>Кіру</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color:  ; /* Жасыл реңкті фон */
-            color: #2c3e50; /* Қараңғы көк мәтін */
-            margin: 0;
-            padding: 20px;
-            text-align: center; /* Мәтінді орталау */
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        color: black; /* Қараңғы көк мәтін */
+        margin: 0;
+        padding: 20px;
+        text-align: center; /* Мәтінді орталау */
         }
+
+
         .logo {
-            width: 100px; /* Логотиптің ені */
-            height: 100px; /* Логотиптің биіктігі */
+            width: 250px; /* Логотиптің ені */
+            height: 250px; /* Логотиптің биіктігі */
             border-radius: 50%; /* Дөңгелек форма */
             background-color: #27ae60; /* Логотиптің фоны */
-            margin: 20px auto; /* Орталау үшін автоматты маржа */
+            margin: 30px auto; /* Орталау үшін автоматты маржа */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -94,7 +95,8 @@ $conn->close();
             border-radius: 4px;
         }
         button {
-            background-color:green; /* Жасыл түсті батырма */
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #00008B; /* Жасыл түсті батырма */
             color: white;
             padding: 10px;
             border: none;
@@ -103,7 +105,7 @@ $conn->close();
             width: 100%;
         }
         button:hover {
-            background-color: #219150; /* Батырманы басқанда сәл қоюлау жасыл */
+            background-color: #00008B; /* Батырманы басқанда сәл қоюлау жасыл */
         }
         .error {
             color: red;
@@ -112,7 +114,9 @@ $conn->close();
     </style>
 </head>
 <body>
-    <div class="logo">Логотип</div> <!-- Логотип блокы -->
+    <div class="logo">
+    <img src="img/логотип.jpg" class="logo">
+    </div> <!-- Логотип блокы -->
     
     <?php if (isset($_SESSION["username"])): ?>
         <h3>Қош келдіңіз, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</h3> <!-- Пайдаланушы аты -->
